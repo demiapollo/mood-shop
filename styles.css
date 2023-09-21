@@ -40,21 +40,17 @@ body {
 
 .item {
     border: 0.15rem gray solid;
+    padding: 5%;
 }
 
 .item img {
     height: 50%;
-    align-self: flex-start;
     margin-bottom: 0.5rem;
 }
 
-/* .item p {
-    height: %;
-} */
-
 .item p:nth-child(1) {
     height: 35%;
-    padding-left: 3px;
+    
 }
 
 .item p:nth-child(1)::before {
