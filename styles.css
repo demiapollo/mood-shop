@@ -24,3 +24,56 @@ body {
     text-decoration: none;
 }
 
+.items {
+    width: 80%;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+}
+
+.items img {
+    width: 100%;
+    height: auto;
+}
+
+.item {
+    border: 0.15rem gray solid;
+}
+
+.item img {
+    height: 50%;
+    align-self: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+/* .item p {
+    height: %;
+} */
+
+.item p:nth-child(1) {
+    height: 35%;
+    padding-left: 3px;
+}
+
+.item p:nth-child(1)::before {
+    content: "$";
+}
+
+.item p:nth-child(2) {
+    height: 20%;    
+}
+
+.item button {
+    /* center the button */
+    margin: 1px auto;
+    display: block;
+    width: 40%;
+    height: 5%;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
