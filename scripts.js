@@ -36,6 +36,7 @@ for (let i = 0; i < data.length; i += 1) {
 
 const cart = [];
 
+// Add Item
 function addItem(name, price) {
     for (let i = 0; i < cart.length; i += 1) {
         if (cart[i].name === name) {
@@ -80,6 +81,25 @@ function getTotal() {
     return totalPrice
 }
 
+// Removing Items
+function removeItem (name, qty = 0) {
+    for (let i = 0; i < cart.length; i += 1) {
+        if (cart[i].name === name) {
+            if (qty > 0) {
+                cart[i].qty -= qty
+            }
+            if (cart[i].qty < 1 || qty === 0) {
+                cart.splice(i, 1)
+            }
+            return
+        }
+    }
+}
+
+
+
+
+// Testing
 addItem('Apple', 0.99);
 addItem('Orange', 1.29);
 addItem('Opinion', 0.02);
@@ -87,5 +107,10 @@ addItem('Apple', 0.99);
 addItem('Frisbee', 9.92);
 addItem('Apple', 0.99);
 addItem('Orange', 1.29);
+
+showItems()
+
+removeItem('Apple', 1)
+removeItem('Frisbee')
 
 showItems();
