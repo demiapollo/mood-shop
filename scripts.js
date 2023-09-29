@@ -1,6 +1,9 @@
 import data from './data.js';
 
+const itemList = document.getElementById('item-list');
 const itemsContainer = document.querySelector('#items');
+const cartQty = document.getElementById('cart-qty');
+const cartTotal = document.getElementById('cart-total');
 
 for (let i = 0; i < data.length; i += 1) {
     //create a new div element and give it a class name
@@ -53,14 +56,21 @@ function addItem(name, price) {
 // Show Items
 function showItems() {
     
-    const qty = getQty()
-    console.log(`You have ${qty} items in your cart.`);
+    const qty = getQty();
+    cartQty.innerHTML = `You have ${qty} items in your cart.`;
+
+    let itemStr = '';
     for (let i = 0; i < cart.length; i += 1) {
-        console.log(`- ${cart[i].name} ${cart[i].price} x ${cart[i].qty}`);
+        // console.log(`- ${cart[i].name} ${cart[i].price} x ${cart[i].qty}`);
+
+        const { name, price, qty } = cart[i];
+
+        itemStr += `<li> ${name} ${price} x ${qty} = $${qty * price} </li>`;
     }
+    itemList.innerHTML = itemStr;
 
     const total = getTotal()
-    console.log(`Total price is $${total.toFixed(2)}`)
+    cartTotal.innerHTML = `Total price is $${total.toFixed(2)}`
 }
 
 // Get Qty
@@ -97,6 +107,7 @@ function removeItem (name, qty = 0) {
 }
 
 
+// itemList.innerHTML = '<li> Hello World</li>'
 
 
 // Testing
