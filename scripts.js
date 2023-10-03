@@ -5,6 +5,9 @@ const itemsContainer = document.querySelector('#items');
 const cartQty = document.getElementById('cart-qty');
 const cartTotal = document.getElementById('cart-total');
 
+
+
+
 for (let i = 0; i < data.length; i += 1) {
     //create a new div element and give it a class name
     const newDiv = document.createElement('div');
@@ -107,21 +110,32 @@ function removeItem (name, qty = 0) {
 }
 
 
+const all_items_button = Array.from(document.querySelectorAll("button"))
+
+all_items_button.forEach(elt => elt.addEventListener('click', () => {
+    addItem(elt.getAttribute('id'), elt.getAttribute('data-price'))
+    showItems()
+  }))
+
+
+
+
+console.log(all_items_button);
 // itemList.innerHTML = '<li> Hello World</li>'
 
 
 // Testing
-addItem('Apple', 0.99);
-addItem('Orange', 1.29);
-addItem('Opinion', 0.02);
-addItem('Apple', 0.99);
-addItem('Frisbee', 9.92);
-addItem('Apple', 0.99);
-addItem('Orange', 1.29);
+// addItem('Apple', 0.99);
+// addItem('Orange', 1.29);
+// addItem('Opinion', 0.02);
+// addItem('Apple', 0.99);
+// addItem('Frisbee', 9.92);
+// addItem('Apple', 0.99);
+// addItem('Orange', 1.29);
 
-showItems()
+// showItems()
 
-removeItem('Apple', 1)
-removeItem('Frisbee')
+// removeItem('Apple', 1)
+// removeItem('Frisbee')
 
-showItems();
+// showItems();
